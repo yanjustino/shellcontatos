@@ -1,6 +1,6 @@
 #!/bin/bash
 # Este script é referente ao trabalho da disciplina REDES III
-# da UNP - Professor Ricardo Reis
+# da UNP - Professor Ricardo Moreira
 # Aluno Yan de Lima Justino - Matrícula 201206182
 # Código original postado em : https://github.com/yanjustino/shellcontatos
 
