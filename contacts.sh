@@ -2,6 +2,7 @@
 # Este script é referente ao trabalho da disciplina REDES III
 # da UNP - Professor Ricardo Reis
 # Aluno Yan de Lima Justino - Matrícula 201206182
+# Código original postado em : https://github.com/yanjustino/shellcontatos
 
 #argumentos
 OPTION=$1
@@ -18,7 +19,7 @@ function main(){
     elif [[ $OPTION = '--ddd' || $OPTION = '-d' ]]; then buscar_por_ddd
     elif [[ $OPTION = '--nome' || $OPTION = '-n' ]]; then buscar_por_nome_ou_sobrenome
     else
-        echo "Comando não reconhecido ou não informado!"           
+        __echo_art
     fi
 }
 
@@ -60,6 +61,30 @@ function buscar_por_nome_ou_sobrenome(){
             echo "$name"
         fi
     done < "contacts.db"     
+}
+
+__echo_art() {
+    printf "%b" "\e[0;36m"
+    echo "                                           "
+    echo "    ____             __               _____"
+    echo "   / __ \ ___   ____/ /___   _____   |__  /"
+    echo "  / /_/ // _ \ / __  // _ \ / ___/    /_ < "
+    echo " / _, _//  __// /_/ //  __/(__  )   ___/ / "
+    echo "/_/ |_| \___/ \__,_/ \___//____/   /____/  "
+    echo "                                           "
+    printf "%b" "\e[0m"
+
+    echo "HELPER DO PROGRAMA CONTATOS"
+    echo ""
+    echo "(1) Para selecionar todos os contatos use o comando 'contacts.sh -t'"
+    echo "(1) Para selecionar todos os contatos use o comando 'contacts.sh --todos'"
+    echo "(2) Para selecionar um contato por seu DDD use o comando 'contacts.sh -d <Numero do DDD>'"
+    echo "(2) Para selecionar um contato por seu DDD use o comando 'contacts.sh --ddd <Numero do DDD>'"
+    echo "(3) Para selecionar um contato por seu Nome ou sobrenome use o comando 'contacts.sh -n <Nome ou Sobrenome>'"
+    echo "(3) Para selecionar um contato por seu Nome ou sobrenome use o comando 'contacts.sh --nome <Nome ou Sobrenome>'"
+    echo "(4) Para inserir um contato use o comando 'contacts.sh -i <Nome e Sobrenome> +55 (<DDD>) <Numero>'"
+    echo "(4) Para excluir um contato use o comando 'contacts.sh -r <Nome ou Sobrenome ou telefone>'"
+    echo ""
 }
 
 main

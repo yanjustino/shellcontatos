@@ -1,0 +1,1 @@
+Para saber mais sobre o programa digite o comando 'source contacts.sh'
