@@ -82,7 +82,7 @@ __echo_art() {
     echo "(2) Para selecionar um contato por seu DDD use o comando 'contacts.sh --ddd <Numero do DDD>'"
     echo "(3) Para selecionar um contato por seu Nome ou sobrenome use o comando 'contacts.sh -n <Nome ou Sobrenome>'"
     echo "(3) Para selecionar um contato por seu Nome ou sobrenome use o comando 'contacts.sh --nome <Nome ou Sobrenome>'"
-    echo "(4) Para inserir um contato use o comando 'contacts.sh -i <Nome e Sobrenome> +55 (<DDD>) <Numero>'"
+    echo "(4) Para inserir um contato use o comando 'contacts.sh -i \"<Nome e Sobrenome> +55 (<DDD>) <Numero>\"'"
     echo "(4) Para excluir um contato use o comando 'contacts.sh -r <Nome ou Sobrenome ou telefone>'"
     echo ""
 }
