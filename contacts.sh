@@ -28,11 +28,12 @@ function adicionar_contato(){
     echo $VALUES >> "contacts.db"
 }
 
+# Remove uma contato do arquivo contacts.db
 function remover_contato(){
     sed -i".bak" "/$VALUES/d" contacts.db
 }
 
-# Remove uma contato do arquivo contacts.db
+# exibe lista com todos os contatos do arquivo contacts.db
 function buscar_todos_contatos(){
     while read line
     do
@@ -63,6 +64,7 @@ function buscar_por_nome_ou_sobrenome(){
     done < "contacts.db"     
 }
 
+# Cover com helper da aplicação
 __echo_art() {
     printf "%b" "\e[0;36m"
     echo "                                           "
