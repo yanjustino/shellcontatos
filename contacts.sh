@@ -9,8 +9,8 @@ OPTION=$1
 VALUES=$2
 
 #constantes
-REGEX_DDD="\($2\)"
-REGEX_NOME="[a-zA-Z] $2|$2 [a-zA-Z]"
+REGEX_DDD="($2)"
+REGEX_NOME="$2"
 
 function main(){
     if [[ $OPTION = '-i' ]]; then adicionar_contato
@@ -42,33 +42,17 @@ function remover_contato(){
 
 # exibe lista com todos os contatos do arquivo contacts.db
 function buscar_todos_contatos(){
-    while read line
-    do
-        name=$line
-        echo "$name"
-    done < "contacts.db" 
+    cat "contacts.db" | less
 }
 
 # Função para recuperar contatos por DDD
 function buscar_por_ddd(){
-    while read line
-    do   
-        name=$line
-        if [[ $name =~ $REGEX_DDD ]]; then
-            echo "$name"
-        fi
-    done < "contacts.db"     
+    grep $REGEX_DDD "contacts.db" | less
 }
 
 # Função para recuperar contatos por Nome ou Sobrenome
 function buscar_por_nome_ou_sobrenome(){
-    while read line
-    do   
-        name=$line    
-        if [[ $name =~ $REGEX_NOME ]]; then
-            echo "$name"
-        fi
-    done < "contacts.db"     
+    grep $REGEX_NOME "contacts.db" | less
 }
 
 # Cover com helper da aplicação
