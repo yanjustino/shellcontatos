@@ -15,6 +15,7 @@ REGEX_NOME="[a-zA-Z] $2|$2 [a-zA-Z]"
 function main(){
     if [[ $OPTION = '-i' ]]; then adicionar_contato
     elif [[ $OPTION = '-r' ]]; then remover_contato
+    elif [[ $OPTION = '-h' ]]; then __echo_art
     elif [[ $OPTION = '--todos' || $OPTION = '-t' ]]; then buscar_todos_contatos
     elif [[ $OPTION = '--ddd' || $OPTION = '-d' ]]; then buscar_por_ddd
     elif [[ $OPTION = '--nome' || $OPTION = '-n' ]]; then buscar_por_nome_ou_sobrenome
@@ -25,7 +26,13 @@ function main(){
 
 # Adiciona um contato no arquivo contacts.db
 function adicionar_contato(){
-    echo $VALUES >> "contacts.db"
+    echo "nome contato > "
+    read text
+    echo "telefone do contato > "
+    read telefone
+
+    echo "$text $telefone" >> "contacts.db"
+    buscar_todos_contatos
 }
 
 # Remove uma contato do arquivo contacts.db
@@ -84,7 +91,7 @@ __echo_art() {
     echo "(2) Para selecionar um contato por seu DDD use o comando 'contacts.sh --ddd <Numero do DDD>'"
     echo "(3) Para selecionar um contato por seu Nome ou sobrenome use o comando 'contacts.sh -n <Nome ou Sobrenome>'"
     echo "(3) Para selecionar um contato por seu Nome ou sobrenome use o comando 'contacts.sh --nome <Nome ou Sobrenome>'"
-    echo "(4) Para inserir um contato use o comando 'contacts.sh -i \"<Nome e Sobrenome> +55 (<DDD>) <Numero>\"'"
+    echo "(4) Para inserir um contato use o comando 'contacts.sh -i"
     echo "(4) Para excluir um contato use o comando 'contacts.sh -r <Nome ou Sobrenome ou telefone>'"
     echo ""
 }
